@@ -8,9 +8,8 @@
         "build_vpc_id": "{{env `BUILD_VPC_ID`}}",
         "build_subnet_id": "{{env `BUILD_SUBNET_ID`}}",
         "build_sg_id": "{{env `BUILD_SG_ID`}}",
-        "atlas_token": "{{env `ATLAS_CUSTOM_TOKEN`}}",
-        "atlas_org_name": "{{env `ATLAS_ORG_NAME`}}",
-        "version": "0.0.1"
+        "atlas_token": "{{env `ATLAS_TOKEN`}}",
+        "atlas_org_name": "{{env `ATLAS_ORG_NAME`}}"
     },
     "builders": [{
         "type": "amazon-ebs",
@@ -37,8 +36,7 @@
         "artifact": "{{user `atlas_org_name`}}/webami",
         "artifact_type": "amazon.image",
         "metadata": {
-            "created_at": "{{timestamp}}",
-            "version": "{{user `version`}}"
+            "created_at": "{{timestamp}}"
         }
     }]
 }
