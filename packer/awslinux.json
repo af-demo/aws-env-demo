@@ -14,9 +14,9 @@
         "ssh_username": "{{user `ssh_username`}}",
         "ami_name": "{{user `ami_name`}}"
     }],
-    "provisioners": {
+    "provisioners": [{
         "type": "shell",
         "inline": ["sudo yum install -y nginx"]
-    }
+    }]
 
 }
