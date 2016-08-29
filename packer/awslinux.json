@@ -6,7 +6,7 @@
         "ssh_username": "ec2-user",
         "ami_name": "demoenv-ami {{timestamp}}",
         "vpc_id": "{{env `BUILD_VPC_ID`}}",
-        "subnet_id": "{{ env `BUILD_SUBNET_ID`}}"
+        "subnet_id": "{{env `BUILD_SUBNET_ID`}}"
     },
     "builders": [{
         "type": "amazon-ebs",
@@ -16,7 +16,7 @@
         "ssh_username": "{{user `ssh_username`}}",
         "ami_name": "{{user `ami_name`}}",
         "vpc_id": "{{user `vpc_id`}}",
-        "subnet_id": "{{user `subnet_id`}}",
+        "subnet_id": "{{user `subnet_id`}}"
     }],
     "provisioners": [{
         "type": "shell",
