@@ -77,7 +77,6 @@ resource "aws_route_table_association" "rt_assoc_public_2" {
 // NAT Gateway
 
 resource "aws_eip" "nat_eip" {
-  instance = "${aws_instance.web.id}"
   vpc      = true
 }
 
