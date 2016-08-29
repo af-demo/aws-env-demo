@@ -29,7 +29,7 @@
         "inline": ["sudo yum install -y nginx", "sudo chkconfig --levels 3 nginx on"]
     }, {
         "type": "shell",
-        "inline": ["sleep 10"]
+        "inline": ["sleep 30"]
     }],
     "post-processors": [{
         "type": "atlas",
