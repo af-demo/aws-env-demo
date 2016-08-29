@@ -4,7 +4,9 @@
         "aws_instance_type": "t2.small",
         "source_ami": "ami-6869aa05",
         "ssh_username": "ec2-user",
-        "ami_name": "demoenv-ami {{timestamp}}"
+        "ami_name": "demoenv-ami {{timestamp}}",
+        "vpc_id": "{{env `BUILD_VPC_ID`}}",
+        "subnet_id": "{{ env `BUILD_SUBNET_ID`}}"
     },
     "builders": [{
         "type": "amazon-ebs",
@@ -12,7 +14,9 @@
         "instance_type": "{{user `aws_instance_type`}}",
         "source_ami": "{{user `source_ami`}}",
         "ssh_username": "{{user `ssh_username`}}",
-        "ami_name": "{{user `ami_name`}}"
+        "ami_name": "{{user `ami_name`}}",
+        "vpc_id": "{{user `vpc_id`}}",
+        "subnet_id": "{{user `subnet_id`}}",
     }],
     "provisioners": [{
         "type": "shell",
