@@ -9,7 +9,8 @@
         "build_subnet_id": "{{env `BUILD_SUBNET_ID`}}",
         "build_sg_id": "{{env `BUILD_SG_ID`}}",
         "atlas_token": "{{env `ATLAS_TOKEN`}}",
-        "atlas_org_name": "{{env `ATLAS_ORG_NAME`}}"
+        "atlas_org_name": "{{env `ATLAS_ORG_NAME`}}",
+        "version": "0.0.1"
     },
     "builders": [{
         "type": "amazon-ebs",
@@ -26,16 +27,18 @@
     "provisioners": [{
         "type": "shell",
         "inline": ["sudo yum install -y nginx", "sudo chkconfig --levels 3 nginx on"]
+    }, {
+        "type": "shell",
+        "inline": ["sleep 10"]
     }],
-    "post-processors": [
-      {
+    "post-processors": [{
         "type": "atlas",
         "token": "{{user `atlas_token`}}",
         "artifact": "{{user `atlas_org_name`}}/webami",
         "artifact_type": "amazon.image",
         "metadata": {
-          "created_at": "{{timestamp}}"
+            "created_at": "{{timestamp}}",
+            "version": "{{user `version`}}"
         }
-      }
-    ]
+    }]
 }
