@@ -7,7 +7,7 @@
         "ami_name": "demoenv-ami {{timestamp}}",
         "build_vpc_id": "{{env `BUILD_VPC_ID`}}",
         "build_subnet_id": "{{env `BUILD_SUBNET_ID`}}",
-        "build_sg_id": "{{env `BUILD_VPC_ID`}}"
+        "build_sg_id": "{{env `BUILD_SG_ID`}}"
     },
     "builders": [{
         "type": "amazon-ebs",
