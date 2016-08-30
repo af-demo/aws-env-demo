@@ -41,7 +41,7 @@
         "inline": ["sudo gem install io-console", "sudo gem install inspec"]
     }, {
         "type": "shell",
-        "inline": ["sudo inspec exec /tmp/inspec_tests.rb"]
+        "inline": ["sudo /usr/local/bin/inspec exec /tmp/inspec_tests.rb"]
     }],
     "post-processors": [{
         "type": "atlas",
