@@ -9,7 +9,8 @@
         "build_subnet_id": "{{env `BUILD_SUBNET_ID`}}",
         "build_sg_id": "{{env `BUILD_SG_ID`}}",
         "atlas_token": "{{env `ATLAS_TOKEN`}}",
-        "atlas_org_name": "{{env `ATLAS_ORG_NAME`}}"
+        "atlas_org_name": "{{env `ATLAS_ORG_NAME`}}",
+        "chef_run_list": "recipe[demo_nginx_config::default]"
     },
     "builders": [{
         "type": "amazon-ebs",
@@ -25,10 +26,18 @@
     }],
     "provisioners": [{
         "type": "shell",
-        "inline": ["sudo yum install -y nginx", "sudo chkconfig --levels 3 nginx on"]
+        "inline": ["sleep 30"]
+    }, {
+        "type": "file",
+        "source": "cookbooks",
+        "destination": "/tmp"
+    }, {
+        "type": "chef-solo",
+        "cookbook_paths": ["/tmp/cookbooks"],
+        "run_list": "{{user `chef_run_list`}}"
     }, {
         "type": "shell",
-        "inline": ["sleep 30"]
+        "inline": ["inspec exec /tmp/inspec_tests.rb"]
     }],
     "post-processors": [{
         "type": "atlas",

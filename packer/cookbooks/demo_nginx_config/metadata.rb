@@ -1,0 +1,7 @@
+name 'demo_nginx_config'
+maintainer 'Alex Fomin'
+maintainer_email 'alfomin@gmail.com'
+license 'all_rights'
+description 'Installs/Configures demo_nginx_config'
+long_description 'Installs/Configures demo_nginx_config'
+version '0.1.0'
