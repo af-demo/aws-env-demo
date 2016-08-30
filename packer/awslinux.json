@@ -38,7 +38,7 @@
         "staging_directory": "{{user `chef_staging_directory`}}"
     }, {
         "type": "shell",
-        "inline": ["inspec exec /tmp/inspec_tests.rb"]
+        "inline": ["sudo inspec exec /tmp/inspec_tests.rb"]
     }],
     "post-processors": [{
         "type": "atlas",
