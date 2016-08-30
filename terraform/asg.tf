@@ -8,7 +8,7 @@ resource "aws_launch_configuration" "demo_launch_conf" {
     lifecycle { create_before_destroy = true }
     image_id = "${data.atlas_artifact.webami.metadata_full.region-us-east-1}"
     instance_type = "${var.aws_instance_type}"
-    security_groups = ["aws_security_group.web_allow_http.id"]
+    security_groups = ["${aws_security_group.web_allow_http.id}"]
 
 }
 
