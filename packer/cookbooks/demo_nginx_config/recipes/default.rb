@@ -10,7 +10,11 @@ end
 
 package ['nginx', 'ruby-devel', 'make', 'gcc']
 
-gem_package ['io-console', 'inspec']
+%w[io-console inspec].each do |gem|
+  gem_package gem do
+    action :install
+  end
+end
 
 service 'nginx' do
   action [:enable, :start]
