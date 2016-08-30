@@ -33,7 +33,7 @@
         "destination": "/tmp"
     }, {
         "type": "chef-solo",
-        "cookbook_paths": ["/tmp/cookbooks"],
+        "cookbook_paths": ["/tmp"],
         "run_list": "{{user `chef_run_list`}}"
     }, {
         "type": "shell",
