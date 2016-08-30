@@ -10,7 +10,8 @@
         "build_sg_id": "{{env `BUILD_SG_ID`}}",
         "atlas_token": "{{env `ATLAS_TOKEN`}}",
         "atlas_org_name": "{{env `ATLAS_ORG_NAME`}}",
-        "chef_run_list": "recipe[demo_nginx_config::default]"
+        "chef_run_list": "recipe[demo_nginx_config::default]",
+        "chef_staging_directory": "/tmp/chef-solo-staging"
     },
     "builders": [{
         "type": "amazon-ebs",
@@ -28,13 +29,13 @@
         "type": "shell",
         "inline": ["sleep 30"]
     }, {
-        "type": "file",
-        "source": "cookbooks",
-        "destination": "/home/ec2-user"
+        "type": "shell",
+        "inline": ["mkdir -p {{user `chef_staging_directory`}} && chown {{user `ssh_username`}}:{{user `ssh_username`}} {{user `chef_staging_directory`}}"]
     }, {
         "type": "chef-solo",
-        "cookbook_paths": ["/home/ec2-user"],
-        "run_list": "{{user `chef_run_list`}}"
+        "cookbook_paths": ["cookbooks"],
+        "run_list": "{{user `chef_run_list`}}",
+        "staging_directory": "{{user `chef_staging_directory`}}"
     }, {
         "type": "shell",
         "inline": ["inspec exec /tmp/inspec_tests.rb"]
