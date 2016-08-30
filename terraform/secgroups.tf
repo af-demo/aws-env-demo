@@ -6,7 +6,7 @@ resource "aws_security_group" "web_allow_http" {
       from_port = 80
       to_port = 80
       protocol = "tcp"
-      security_groups = ["aws_security_group.elb_allow_http.id"]
+      security_groups = ["${aws_security_group.elb_allow_http.id}"]
   }
   tags {
     Name = "web_allow_http"
