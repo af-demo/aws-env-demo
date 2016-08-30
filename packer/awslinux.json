@@ -30,10 +30,10 @@
     }, {
         "type": "file",
         "source": "cookbooks",
-        "destination": "/tmp"
+        "destination": "/home/ec2-user"
     }, {
         "type": "chef-solo",
-        "cookbook_paths": ["/tmp"],
+        "cookbook_paths": ["/home/ec2-user"],
         "run_list": "{{user `chef_run_list`}}"
     }, {
         "type": "shell",
