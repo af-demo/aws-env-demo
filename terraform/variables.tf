@@ -25,3 +25,4 @@ variable "private_cidr_block_1" {
 variable "private_cidr_block_2" {
   default = "10.131.4.0/24"
 }
+variable "atlas_org_name" {}
