@@ -1,4 +1,4 @@
-data "atlas_artifact" "web" {
+data "atlas_artifact" "webami" {
     name = "${var.atlas_org_name}/webami"
     type = "amazon.image"
     build = "latest"
