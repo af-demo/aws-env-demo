@@ -1,1 +1,1 @@
-default['demoenv']['pagetext'] = 'Automation for the Robots'
+default['demoenv']['pagetext'] = 'Automation for the People'
