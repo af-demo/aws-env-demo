@@ -38,7 +38,10 @@
         "staging_directory": "{{user `chef_staging_directory`}}"
     }, {
         "type": "shell",
-        "inline": ["sudo gem install io-console", "sudo gem install inspec", "sudo inspec exec /tmp/inspec_tests.rb"]
+        "inline": ["sudo gem install io-console", "sudo gem install inspec"]
+    }, {
+        "type": "shell",
+        "inline": ["sudo inspec exec /tmp/inspec_tests.rb"]
     }],
     "post-processors": [{
         "type": "atlas",
