@@ -1,4 +1,4 @@
-# aws-env-demo
+# Demo AWS environment stack
 
 ## Features
 
@@ -20,4 +20,6 @@ This demo stack creates the following AWS resources:
 - 2 public and 2 private subnets in 2 different AZs
 - Routing tables for public (via IGW) and private (via NAT GW) subnets
 - Routing table associations to subnets
-- Security Groups
+- Security Groups for ELB (HTTP from all) and Web servers (HTTP from ELB)
+- AutoScaling group for web servers using 2 different AZs
+- ELB using 2 different AZs
