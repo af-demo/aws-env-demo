@@ -26,7 +26,6 @@ template '/usr/share/nginx/html/index.html' do
 	owner "root"
 	group "root"
 	variables ({
-	:TV_page_title => node['demoenv']['pagetitle'],
   :TV_page_text => node['demoenv']['pagetext']
 	})
   notifies :reload, 'service[nginx]', :immediately
@@ -37,8 +36,7 @@ template '/tmp/inspec_tests.rb' do
 	mode 0644
 	owner "root"
 	group "root"
-#	variables ({
-#	:TV_page_title => node['demoenv']['pagetitle'],
-#  :TV_page_text => node['demoenv']['pagetext']
-#	})
+	variables ({
+  :TV_page_text => node['demoenv']['pagetext']
+	})
 end
