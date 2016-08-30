@@ -1,5 +1,6 @@
 resource "aws_security_group" "web_allow_http" {
   name = "web_allow_http"
+  vpc_id = "${aws_vpc.demovpc.id}"
   description = "Allow inbound HTTP traffic from ELB"
   ingress {
       from_port = 80
@@ -14,6 +15,7 @@ resource "aws_security_group" "web_allow_http" {
 
 resource "aws_security_group" "elb_allow_http" {
   name = "elb_allow_http"
+  vpc_id = "${aws_vpc.demovpc.id}"
   description = "Allow inbound HTTP traffic"
   ingress {
       from_port = 80
