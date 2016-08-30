@@ -1,5 +1,6 @@
 data "atlas_artifact" "webami" {
-    name = "${var.atlas_org_name}/webami"
+//    name = "${var.atlas_org_name}/webami"
+    name = "af-hs-test/webami"
     type = "amazon.image"
     build = "latest"
 }
